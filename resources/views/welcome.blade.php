@@ -19,12 +19,15 @@
     @foreach ($info as $item)
     {{$item}}
     @endforeach
+    @foreach ($proparray as $item)
+    {{$item}}
+    @endforeach
     <div class="d-flex flex-row justify-content-center align-items-center">
         <div class="row">
             <h3>Sending data from controller to vue file</h3>
             <div class="col-md-12" id="app">
                 <div class="">
-                    <example-component :vuex="5" :bts="'My journey with Vue in laravel'" :foo="{'3':' three','2': 'two'}" :title="{{$title}}" :info="{{json_encode($info)}}" :value={{json_encode($value)}} />
+                    <example-component :vuex="5" :bts="'My journey with Vue in laravel'" :foo="{'3':' three','2': 'two'}" :title="{{$title}}" :info="{{json_encode($info)}}" :value={{json_encode($value)}} :proparray={{json_encode($proparray)}} />
                 </div>
             </div>
         </div>

@@ -36,9 +36,12 @@ class Dataget extends Controller
                 "mobile" => "XXXXXXXXXX"
             )
         );
+        $proparray =  [
+            1, 2, 3, 4, 5
+        ];
         // return view('welcome', ['categories' => $categories, 'products' => $products, 'title' => $title]);
         // return view('welcome')->with('data', $title);
-        return view('welcome', compact('info', 'title', 'value'));
+        return view('welcome', compact('info', 'title', 'value', 'proparray'));
         // return view('welcome', ['info' => $info, 'title' => $title]);
     }
 
