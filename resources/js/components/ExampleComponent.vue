@@ -24,23 +24,47 @@
                         <h4>{{ vuex }}</h4>
                         <h2>
                             this is data send from blade file :
-                            {{ $store.state.vueData }}
+                            {{ vueData }}
                         </h2>
                         <h2>{{ $store.state.counter }}</h2>
+                        <h2>{{ counter }}</h2>
+                        <h2>
+                            this is the Getter Function showing Square of above
+                            number : {{ counterSqure }}
+                        </h2>
                         <button
                             type="button"
-                            @click="$store.dispatch('increaseCounter')"
+                            class="btn btn-success"
+                            @click="increaseCounter()"
                             name="button"
                         >
                             +
                         </button>
                         <button
                             type="button"
-                            @click="$store.dispatch('decreaseCounter')"
+                            class="btn btn-danger"
+                            @click="decreaseCounter(2)"
                             name="button"
                         >
                             -
                         </button>
+                        <button
+                            type="button"
+                            class="btn btn-success"
+                            @click="mutatedecreaseCounter(2)"
+                            name="button"
+                        >
+                            click to add mutation directly
+                        </button>
+                        <button
+                            type="button"
+                            class="btn btn-danger"
+                            @click="mutateincreaseCounter(2)"
+                            name="button"
+                        >
+                            click to subtract mutation directly
+                        </button>
+
                         <br />
                         <br />
                         <br />
@@ -51,7 +75,7 @@
                         Array From Store:
                         <div
                             class="text-danger"
-                            v-for="itm in $store.state.arrayData"
+                            v-for="itm in arrayData"
                             :key="itm"
                         >
                             <h2>name: {{ itm }}</h2>
@@ -70,7 +94,7 @@
     </div>
 </template>
 <script>
-import { mapState } from "vuex";
+import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
 export default {
     mounted() {
         console.log("Component mounted.");
@@ -84,14 +108,21 @@ export default {
         };
     },
     computed: {
-        ...mapState({
-            count: (state) => state.count,
-        }),
+        ...mapState(["counter", "arrayData", "vueData"]),
+        ...mapGetters({ counterSqure: "counterSqure" }),
     },
     methods: {
         sendArray() {
             this.$store.dispatch("sendArrayAction", this.proparray1);
         },
+        ...mapActions({
+            decreaseCounter: "decreaseCounter",
+            increaseCounter: "increaseCounter",
+        }),
+        ...mapMutations({
+            mutatedecreaseCounter: "increaseCounter",
+            mutateincreaseCounter: "decreaseCounter",
+        }),
     },
     props: {
         vuex: {

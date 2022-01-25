@@ -19435,6 +19435,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     console.log("Component mounted.");
@@ -19447,11 +19455,20 @@ __webpack_require__.r(__webpack_exports__);
       count: 2
     };
   },
-  methods: {
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapState)(["counter", "arrayData", "vueData"])), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)({
+    counterSqure: "counterSqure"
+  })),
+  methods: _objectSpread(_objectSpread({
     sendArray: function sendArray() {
       this.$store.dispatch("sendArrayAction", this.proparray1);
     }
-  },
+  }, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)({
+    decreaseCounter: "decreaseCounter",
+    increaseCounter: "increaseCounter"
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)({
+    mutatedecreaseCounter: "increaseCounter",
+    mutateincreaseCounter: "decreaseCounter"
+  })),
   props: {
     vuex: {
       type: Number,
@@ -19559,11 +19576,17 @@ var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Array From Store: ");
 
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_13 = {
   "class": "card-body"
-}, "this is Vuex Module Example", -1
-/* HOISTED */
-);
+};
+
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" this is Vuex Module Example ");
+
+var _hoisted_15 = {
+  "class": "container"
+};
+
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" this is user 2 ");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "sending Strings = " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.bts), 1
@@ -19594,28 +19617,48 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.vuex), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, " this is data send from blade file : " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$store.state.vueData), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, " this is data send from blade file : " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.vueData), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$store.state.counter), 1
   /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.counter), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, " this is the Getter Function showing Square of above number : " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.counterSqure), 1
+  /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
+    "class": "btn btn-success",
     onClick: _cache[0] || (_cache[0] = function ($event) {
-      return _ctx.$store.dispatch('increaseCounter');
+      return _ctx.increaseCounter();
     }),
     name: "button"
   }, " + "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
+    "class": "btn btn-danger",
     onClick: _cache[1] || (_cache[1] = function ($event) {
-      return _ctx.$store.dispatch('decreaseCounter');
+      return _ctx.decreaseCounter(2);
     }),
     name: "button"
-  }, " - "), _hoisted_8, _hoisted_9, _hoisted_10, _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, " - "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
-    onClick: _cache[2] || (_cache[2] = function () {
+    "class": "btn btn-success",
+    onClick: _cache[2] || (_cache[2] = function ($event) {
+      return _ctx.mutatedecreaseCounter(2);
+    }),
+    name: "button"
+  }, " click to add mutation directly "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    "class": "btn btn-danger",
+    onClick: _cache[3] || (_cache[3] = function ($event) {
+      return _ctx.mutateincreaseCounter(2);
+    }),
+    name: "button"
+  }, " click to subtract mutation directly "), _hoisted_8, _hoisted_9, _hoisted_10, _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    onClick: _cache[4] || (_cache[4] = function () {
       return $options.sendArray && $options.sendArray.apply($options, arguments);
     })
-  }, " Send Array "), _hoisted_12, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.$store.state.arrayData, function (itm) {
+  }, " Send Array "), _hoisted_12, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.arrayData, function (itm) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       "class": "text-danger",
       key: itm
@@ -19624,7 +19667,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     )]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))]), _hoisted_13])])])]);
+  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "form user 2 -> " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.alias), 1
+  /* TEXT */
+  )])])])])])]);
 }
 
 /***/ }),
@@ -19673,16 +19718,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _modules_user_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/user.js */ "./resources/js/store/modules/user.js");
 
+ // import * as user from "./modules/user.js";
 
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vuex__WEBPACK_IMPORTED_MODULE_2__.createStore)({
-  modules: {
-    user: _modules_user_js__WEBPACK_IMPORTED_MODULE_1__
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vuex__WEBPACK_IMPORTED_MODULE_1__.createStore)({
+  state: {
+    counter: 0,
+    vueData: "Default Data",
+    arrayData: [0, 1]
   },
   mutations: {
     increaseCounter: function increaseCounter(state, randomNumber) {
@@ -19738,27 +19784,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
 }));
-
-/***/ }),
-
-/***/ "./resources/js/store/modules/user.js":
-/*!********************************************!*\
-  !*** ./resources/js/store/modules/user.js ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "state": () => (/* binding */ state)
-/* harmony export */ });
-var state = {
-  state: {
-    counter: 0,
-    vueData: "Default Data",
-    arrayData: [0, 1]
-  }
-};
 
 /***/ }),
 

@@ -1,9 +1,11 @@
 import { createStore } from "vuex";
 import axios from "axios";
-import * as user from "./modules/user.js";
+// import * as user from "./modules/user.js";
 export default createStore({
-    modules: {
-        user,
+    state: {
+        counter: 0,
+        vueData: "Default Data",
+        arrayData: [0, 1],
     },
     mutations: {
         increaseCounter(state, randomNumber) {
