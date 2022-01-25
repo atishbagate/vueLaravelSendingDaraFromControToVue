@@ -57,13 +57,20 @@
                             <h2>name: {{ itm }}</h2>
                         </div>
                     </div>
+                    <div class="card-body">
+                        this is Vuex Module Example
+                        <div class="container">
+                            this is user 2
+                            <h3>form user 2 -> {{ alias }}</h3>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </template>
-
 <script>
+import { mapState } from "vuex";
 export default {
     mounted() {
         console.log("Component mounted.");
@@ -75,6 +82,11 @@ export default {
             name: "under component",
             count: 2,
         };
+    },
+    computed: {
+        ...mapState({
+            count: (state) => state.count,
+        }),
     },
     methods: {
         sendArray() {
