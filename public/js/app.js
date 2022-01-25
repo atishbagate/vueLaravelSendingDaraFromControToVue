@@ -19707,6 +19707,70 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/store/actions.js":
+/*!***************************************!*\
+  !*** ./resources/js/store/actions.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  decreaseCounter: function decreaseCounter(_ref) {
+    var commit = _ref.commit;
+    console.log("decreaseCounter (action)");
+    axios__WEBPACK_IMPORTED_MODULE_0___default()("https://www.random.org/integers/?num=1&min=1&max=6&col=1&base=10&format=plain&rnd=new").then(function (res) {
+      // console.log(res)
+      commit("decreaseCounter", res.data);
+    });
+  },
+  increaseCounter: function increaseCounter(_ref2) {
+    var commit = _ref2.commit;
+    console.log("decreaseCounter (action)");
+    axios__WEBPACK_IMPORTED_MODULE_0___default()("https://www.random.org/integers/?num=1&min=1&max=6&col=1&base=10&format=plain&rnd=new").then(function (res) {
+      // console.log(res)
+      commit("increaseCounter", res.data);
+    });
+  },
+  countUpdate: function countUpdate(_ref3, data) {
+    var commit = _ref3.commit;
+    console.log(data);
+    commit("countUpdateMutation", data);
+  },
+  sendArrayAction: function sendArrayAction(_ref4, array) {
+    var commit = _ref4.commit;
+    console.log(array);
+    commit("sendArrayMutation", array);
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/getters.js":
+/*!***************************************!*\
+  !*** ./resources/js/store/getters.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  counterSqure: function counterSqure(state) {
+    return state.counter * state.counter;
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/store/index.js":
 /*!*************************************!*\
   !*** ./resources/js/store/index.js ***!
@@ -19718,72 +19782,62 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actions */ "./resources/js/store/actions.js");
+/* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mutations */ "./resources/js/store/mutations.js");
+/* harmony import */ var _getters__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getters */ "./resources/js/store/getters.js");
+
+
+
 
  // import * as user from "./modules/user.js";
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vuex__WEBPACK_IMPORTED_MODULE_1__.createStore)({
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vuex__WEBPACK_IMPORTED_MODULE_4__.createStore)({
   state: {
     counter: 0,
     vueData: "Default Data",
     arrayData: [0, 1]
   },
-  mutations: {
-    increaseCounter: function increaseCounter(state, randomNumber) {
-      // state.counter++
-      console.log("random increase number: ", randomNumber);
-      state.counter += randomNumber;
-    },
-    decreaseCounter: function decreaseCounter(state, randomNumber) {
-      // state.counter--
-      console.log("random decrease is number: ", randomNumber);
-      state.counter -= randomNumber;
-    },
-    countUpdateMutation: function countUpdateMutation(state, sendData) {
-      console.log("the data send in props is: ", sendData);
-      state.vueData = this.state.vueData += sendData;
-    },
-    sendArrayMutation: function sendArrayMutation(state, array) {
-      console.log("this is the Array inside the mutations: ", array);
-      state.arrayData = array;
-    }
-  },
-  actions: {
-    decreaseCounter: function decreaseCounter(_ref) {
-      var commit = _ref.commit;
-      console.log("decreaseCounter (action)");
-      axios__WEBPACK_IMPORTED_MODULE_0___default()("https://www.random.org/integers/?num=1&min=1&max=6&col=1&base=10&format=plain&rnd=new").then(function (res) {
-        // console.log(res)
-        commit("decreaseCounter", res.data);
-      });
-    },
-    increaseCounter: function increaseCounter(_ref2) {
-      var commit = _ref2.commit;
-      console.log("decreaseCounter (action)");
-      axios__WEBPACK_IMPORTED_MODULE_0___default()("https://www.random.org/integers/?num=1&min=1&max=6&col=1&base=10&format=plain&rnd=new").then(function (res) {
-        // console.log(res)
-        commit("increaseCounter", res.data);
-      });
-    },
-    countUpdate: function countUpdate(_ref3, data) {
-      var commit = _ref3.commit;
-      console.log(data);
-      commit("countUpdateMutation", data);
-    },
-    sendArrayAction: function sendArrayAction(_ref4, array) {
-      var commit = _ref4.commit;
-      console.log(array);
-      commit("sendArrayMutation", array);
-    }
-  },
-  getters: {
-    counterSqure: function counterSqure(state) {
-      return state.counter * state.counter;
-    }
-  }
+  mutations: _mutations__WEBPACK_IMPORTED_MODULE_2__["default"],
+  actions: _actions__WEBPACK_IMPORTED_MODULE_1__["default"],
+  Getters: _getters__WEBPACK_IMPORTED_MODULE_3__["default"]
 }));
+
+/***/ }),
+
+/***/ "./resources/js/store/mutations.js":
+/*!*****************************************!*\
+  !*** ./resources/js/store/mutations.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  increaseCounter: function increaseCounter(state, randomNumber) {
+    // state.counter++
+    console.log("random increase number: ", randomNumber);
+    state.counter += randomNumber;
+  },
+  decreaseCounter: function decreaseCounter(state, randomNumber) {
+    // state.counter--
+    console.log("random decrease is number: ", randomNumber);
+    state.counter -= randomNumber;
+  },
+  countUpdateMutation: function countUpdateMutation(state, sendData) {
+    console.log("the data send in props is: ", sendData);
+    state.vueData = this.state.vueData += sendData;
+  },
+  sendArrayMutation: function sendArrayMutation(state, array) {
+    console.log("this is the Array inside the mutations: ", array);
+    state.arrayData = array;
+  }
+});
 
 /***/ }),
 
