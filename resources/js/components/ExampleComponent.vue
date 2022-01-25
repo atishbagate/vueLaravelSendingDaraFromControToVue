@@ -43,7 +43,7 @@
                         <button
                             type="button"
                             class="btn btn-danger"
-                            @click="decreaseCounter(2)"
+                            @click="decreaseCounter()"
                             name="button"
                         >
                             -
@@ -84,8 +84,46 @@
                     <div class="card-body">
                         this is Vuex Module Example
                         <div class="container">
-                            this is user 2
-                            <h3>form user 2 -> {{ alias }}</h3>
+                            this is user
+                            <h3>form user module -></h3>
+                            <h2>{{ cart }}</h2>
+                            <h2>
+                                this is the Getter Function showing Square of
+                                above number : {{ counterPrice }}
+                            </h2>
+
+                            <button
+                                type="button"
+                                class="btn btn-success"
+                                @click="increaseCart(1)"
+                                name="button"
+                            >
+                                user increase
+                            </button>
+                            <button
+                                type="button"
+                                class="btn btn-danger"
+                                @click="decreaseCart(1)"
+                                name="button"
+                            >
+                                user decrease
+                            </button>
+                            <button
+                                type="button"
+                                class="btn btn-success"
+                                @click="increaseCartMutate(5)"
+                                name="button"
+                            >
+                                user increase by hitting Mutation
+                            </button>
+                            <button
+                                type="button"
+                                class="btn btn-danger"
+                                @click="decreaseCartMutate(5)"
+                                name="button"
+                            >
+                                user decrease by hitting Mutation
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -108,8 +146,16 @@ export default {
         };
     },
     computed: {
-        ...mapState(["counter", "arrayData", "vueData"]),
-        ...mapGetters({ counterSqure: "counterSqure" }),
+        ...mapState({
+            counter: "counter",
+            arrayData: "arrayData",
+            vueData: "vueData",
+            cart: (state) => state.user.cart,
+        }),
+        ...mapGetters({
+            counterSqure: "counterSqure",
+            counterPrice: "counterPrice",
+        }),
     },
     methods: {
         sendArray() {
@@ -118,10 +164,14 @@ export default {
         ...mapActions({
             decreaseCounter: "decreaseCounter",
             increaseCounter: "increaseCounter",
+            increaseCart: "increaseCart",
+            decreaseCart: "decreaseCart",
         }),
         ...mapMutations({
             mutatedecreaseCounter: "increaseCounter",
             mutateincreaseCounter: "decreaseCounter",
+            increaseCartMutate: "increaseCart",
+            decreaseCartMutate: "decreaseCart",
         }),
     },
     props: {

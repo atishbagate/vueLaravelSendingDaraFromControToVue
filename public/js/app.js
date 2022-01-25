@@ -19455,8 +19455,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       count: 2
     };
   },
-  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapState)(["counter", "arrayData", "vueData"])), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)({
-    counterSqure: "counterSqure"
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapState)({
+    counter: "counter",
+    arrayData: "arrayData",
+    vueData: "vueData",
+    cart: function cart(state) {
+      return state.user.cart;
+    }
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)({
+    counterSqure: "counterSqure",
+    counterPrice: "counterPrice"
   })),
   methods: _objectSpread(_objectSpread({
     sendArray: function sendArray() {
@@ -19464,10 +19472,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   }, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)({
     decreaseCounter: "decreaseCounter",
-    increaseCounter: "increaseCounter"
+    increaseCounter: "increaseCounter",
+    increaseCart: "increaseCart",
+    decreaseCart: "decreaseCart"
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)({
     mutatedecreaseCounter: "increaseCounter",
-    mutateincreaseCounter: "decreaseCounter"
+    mutateincreaseCounter: "decreaseCounter",
+    increaseCartMutate: "increaseCart",
+    decreaseCartMutate: "decreaseCart"
   })),
   props: {
     vuex: {
@@ -19586,7 +19598,11 @@ var _hoisted_15 = {
   "class": "container"
 };
 
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" this is user 2 ");
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" this is user ");
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "form user module ->", -1
+/* HOISTED */
+);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "sending Strings = " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.bts), 1
@@ -19636,7 +19652,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     type: "button",
     "class": "btn btn-danger",
     onClick: _cache[1] || (_cache[1] = function ($event) {
-      return _ctx.decreaseCounter(2);
+      return _ctx.decreaseCounter();
     }),
     name: "button"
   }, " - "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
@@ -19667,9 +19683,39 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     )]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "form user 2 -> " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.alias), 1
+  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.cart), 1
   /* TEXT */
-  )])])])])])]);
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, " this is the Getter Function showing Square of above number : " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.counterPrice), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    "class": "btn btn-success",
+    onClick: _cache[5] || (_cache[5] = function ($event) {
+      return _ctx.increaseCart(1);
+    }),
+    name: "button"
+  }, " user increase "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    "class": "btn btn-danger",
+    onClick: _cache[6] || (_cache[6] = function ($event) {
+      return _ctx.decreaseCart(1);
+    }),
+    name: "button"
+  }, " user decrease "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    "class": "btn btn-success",
+    onClick: _cache[7] || (_cache[7] = function ($event) {
+      return _ctx.increaseCartMutate(5);
+    }),
+    name: "button"
+  }, " user increase by hitting Mutation "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    "class": "btn btn-danger",
+    onClick: _cache[8] || (_cache[8] = function ($event) {
+      return _ctx.decreaseCartMutate(5);
+    }),
+    name: "button"
+  }, " user decrease by hitting Mutation ")])])])])])]);
 }
 
 /***/ }),
@@ -19782,28 +19828,78 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actions */ "./resources/js/store/actions.js");
 /* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mutations */ "./resources/js/store/mutations.js");
 /* harmony import */ var _getters__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getters */ "./resources/js/store/getters.js");
+/* harmony import */ var _modules_user_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/user.js */ "./resources/js/store/modules/user.js");
 
 
 
 
- // import * as user from "./modules/user.js";
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vuex__WEBPACK_IMPORTED_MODULE_4__.createStore)({
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vuex__WEBPACK_IMPORTED_MODULE_5__.createStore)({
   state: {
     counter: 0,
     vueData: "Default Data",
     arrayData: [0, 1]
   },
+  modules: {
+    user: _modules_user_js__WEBPACK_IMPORTED_MODULE_4__["default"]
+  },
   mutations: _mutations__WEBPACK_IMPORTED_MODULE_2__["default"],
   actions: _actions__WEBPACK_IMPORTED_MODULE_1__["default"],
-  Getters: _getters__WEBPACK_IMPORTED_MODULE_3__["default"]
+  getters: _getters__WEBPACK_IMPORTED_MODULE_3__["default"]
 }));
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/user.js":
+/*!********************************************!*\
+  !*** ./resources/js/store/modules/user.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  state: {
+    cart: 0
+  },
+  mutations: {
+    increaseCart: function increaseCart(state, randomNumber) {
+      // state.counter++
+      console.log("cart increased by : ", randomNumber);
+      state.cart += randomNumber;
+    },
+    decreaseCart: function decreaseCart(state, randomNumber) {
+      // state.counter--
+      console.log("cart decrease by : ", randomNumber);
+      state.cart -= randomNumber;
+    }
+  },
+  actions: {
+    increaseCart: function increaseCart(_ref, data) {
+      var commit = _ref.commit;
+      commit("increaseCart", data);
+    },
+    decreaseCart: function decreaseCart(_ref2, data) {
+      var commit = _ref2.commit;
+      commit("decreaseCart", data);
+    }
+  },
+  getters: {
+    counterPrice: function counterPrice(state) {
+      return state.cart * 100;
+    }
+  }
+});
 
 /***/ }),
 
