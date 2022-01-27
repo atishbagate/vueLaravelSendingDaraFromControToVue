@@ -19464,6 +19464,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     cart2: function cart2(state) {
       return state.b.cart;
+    },
+    //to send the data From user1 to user2
+    takeData: function takeData(state) {
+      return state.b.takeData;
+    },
+    //accessing the Function of user1 inside user2
+    takeDataUser1: function takeDataUser1(state) {
+      return state.a.sendtouser2;
     }
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)({
     counterSqure: "counterSqure",
@@ -19481,7 +19489,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     decreaseCart: "a/decreaseCart",
     // For user2
     increaseCart2: "b/increaseCart",
-    decreaseCart2: "b/decreaseCart"
+    decreaseCart2: "b/decreaseCart",
+    //to send the data From user1 to user2
+    sendDataU1toU2: "b/fetchingDataFromUser1",
+    //accessing the Function of user1 inside user2
+    fetchActionOfUser1: "b/fetchFunctionOfUser1"
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)({
     mutatedecreaseCounter: "increaseCounter",
     mutateincreaseCounter: "decreaseCounter",
@@ -19646,6 +19658,34 @@ var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
+var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+/* HOISTED */
+);
+
+var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+/* HOISTED */
+);
+
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, " Example to show how Data From user 1 changed by user 2 module1 ", -1
+/* HOISTED */
+);
+
+var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+/* HOISTED */
+);
+
+var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+/* HOISTED */
+);
+
+var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+/* HOISTED */
+);
+
+var _hoisted_33 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, " Example To Use Action of User 1 into User 2 Module ", -1
+/* HOISTED */
+);
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "sending Strings = " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.bts), 1
   /* TEXT */
@@ -19789,7 +19829,25 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return _ctx.decreaseCartMutate2(10);
     }),
     name: "button"
-  }, " user decrease by hitting Mutation ")])])])])])]);
+  }, " user decrease by hitting Mutation "), _hoisted_27, _hoisted_28, _hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.takeData), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    "class": "btn btn-danger",
+    onClick: _cache[13] || (_cache[13] = function ($event) {
+      return _ctx.sendDataU1toU2();
+    }),
+    name: "button"
+  }, " send Data From user 1 to user 2 "), _hoisted_30, _hoisted_31, _hoisted_32, _hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.takeDataUser1), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    "class": "btn btn-danger",
+    onClick: _cache[14] || (_cache[14] = function ($event) {
+      return _ctx.fetchActionOfUser1(10);
+    }),
+    name: "button"
+  }, " send Data From user 1 to user 2 ")])])])])])]);
 }
 
 /***/ }),
@@ -19949,7 +20007,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   namespaced: true,
   state: {
-    cart: 0
+    cart: 0,
+    sendtouser2: 2
   },
   mutations: {
     increaseCart: function increaseCart(state, randomNumber) {
@@ -19961,6 +20020,10 @@ __webpack_require__.r(__webpack_exports__);
       // state.counter--
       console.log("cart decrease for user 1 : ", randomNumber);
       state.cart -= randomNumber;
+    },
+    increaseSendData: function increaseSendData(state, payload) {
+      console.log("send Data is Changed inside user 1");
+      state.sendtouser2 = payload;
     }
   },
   actions: {
@@ -19971,6 +20034,12 @@ __webpack_require__.r(__webpack_exports__);
     decreaseCart: function decreaseCart(_ref2, data) {
       var commit = _ref2.commit;
       commit("decreaseCart", data);
+    },
+    increaseSendData: function increaseSendData(_ref3) {
+      var commit = _ref3.commit;
+      var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 5;
+      console.log("increaseSendData Action Triggered inside User 1");
+      commit("increaseSendData", data);
     }
   },
   getters: {
@@ -19996,7 +20065,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   namespaced: true,
   state: {
-    cart: 0
+    cart: 0,
+    takeData: 1
   },
   mutations: {
     increaseCart: function increaseCart(state, randomNumber) {
@@ -20008,6 +20078,10 @@ __webpack_require__.r(__webpack_exports__);
       // state.counter--
       console.log("cart decrease by for user 2 : ", randomNumber);
       state.cart -= randomNumber;
+    },
+    takeDataFromUser1: function takeDataFromUser1(state, input) {
+      console.log("Data is send by user 1 : ", input);
+      state.takeData = input;
     }
   },
   actions: {
@@ -20018,6 +20092,21 @@ __webpack_require__.r(__webpack_exports__);
     decreaseCart: function decreaseCart(_ref2, data) {
       var commit = _ref2.commit;
       commit("decreaseCart", data);
+    },
+    fetchingDataFromUser1: function fetchingDataFromUser1(_ref3, data) {
+      var commit = _ref3.commit,
+          rootState = _ref3.rootState;
+      console.log("user Data is Fetched From user 1 : " + rootState.a.sendtouser2);
+      commit("takeDataFromUser1", rootState.a.sendtouser2);
+    },
+    fetchFunctionOfUser1: function fetchFunctionOfUser1(_ref4, data) {
+      var commit = _ref4.commit,
+          dispatch = _ref4.dispatch,
+          rootState = _ref4.rootState;
+      console.log("Function is Called by user 2, which is present inside user1");
+      dispatch("a/increaseSendData", data, {
+        root: true
+      });
     }
   },
   getters: {

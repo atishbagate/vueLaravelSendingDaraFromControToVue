@@ -180,6 +180,37 @@
                             >
                                 user decrease by hitting Mutation
                             </button>
+                            <br />
+                            <br />
+                            <h2>
+                                Example to show how Data From user 1 changed by
+                                user 2 module1
+                            </h2>
+                            <h2>{{ takeData }}</h2>
+                            <button
+                                type="button"
+                                class="btn btn-danger"
+                                @click="sendDataU1toU2()"
+                                name="button"
+                            >
+                                send Data From user 1 to user 2
+                            </button>
+                            <br />
+                            <br />
+                            <br />
+                            <h2>
+                                Example To Use Action of User 1 into User 2
+                                Module
+                            </h2>
+                            <h3>{{ takeDataUser1 }}</h3>
+                            <button
+                                type="button"
+                                class="btn btn-danger"
+                                @click="fetchActionOfUser1(10)"
+                                name="button"
+                            >
+                                send Data From user 1 to user 2
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -208,6 +239,10 @@ export default {
             vueData: "vueData",
             cart: (state) => state.a.cart,
             cart2: (state) => state.b.cart,
+            //to send the data From user1 to user2
+            takeData: (state) => state.b.takeData,
+            //accessing the Function of user1 inside user2
+            takeDataUser1: (state) => state.a.sendtouser2,
         }),
         ...mapGetters({
             counterSqure: "counterSqure",
@@ -227,6 +262,10 @@ export default {
             // For user2
             increaseCart2: "b/increaseCart",
             decreaseCart2: "b/decreaseCart",
+            //to send the data From user1 to user2
+            sendDataU1toU2: "b/fetchingDataFromUser1",
+            //accessing the Function of user1 inside user2
+            fetchActionOfUser1: "b/fetchFunctionOfUser1",
         }),
         ...mapMutations({
             mutatedecreaseCounter: "increaseCounter",
