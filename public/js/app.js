@@ -19548,6 +19548,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       type: Object,
       required: true,
       "default": [6, 7, 8]
+    },
+    routes: {
+      type: String
+    },
+    routes2: {
+      type: String
     }
   }
 });
@@ -19686,6 +19692,25 @@ var _hoisted_33 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
+var _hoisted_34 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+/* HOISTED */
+);
+
+var _hoisted_35 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+/* HOISTED */
+);
+
+var _hoisted_36 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Page Redirections using laravel Routes", -1
+/* HOISTED */
+);
+
+var _hoisted_37 = ["href"];
+
+var _hoisted_38 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+/* HOISTED */
+);
+
+var _hoisted_39 = ["href"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "sending Strings = " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.bts), 1
   /* TEXT */
@@ -19847,7 +19872,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return _ctx.fetchActionOfUser1(10);
     }),
     name: "button"
-  }, " send Data From user 1 to user 2 ")])])])])])]);
+  }, " send Data From user 1 to user 2 "), _hoisted_34, _hoisted_35, _hoisted_36, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: this.routes
+  }, "Click 1", 8
+  /* PROPS */
+  , _hoisted_37), _hoisted_38, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    "class": "btn btn-success",
+    href: this.routes2
+  }, "Click 2", 8
+  /* PROPS */
+  , _hoisted_39)])])])])])]);
 }
 
 /***/ }),

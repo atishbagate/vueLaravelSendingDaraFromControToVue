@@ -211,6 +211,16 @@
                             >
                                 send Data From user 1 to user 2
                             </button>
+                            <br />
+                            <br />
+                            <h3>Page Redirections using laravel Routes</h3>
+                            <a v-bind:href="this.routes">Click 1</a>
+                            <br />
+                            <a
+                                class="btn btn-success"
+                                v-bind:href="this.routes2"
+                                >Click 2</a
+                            >
                         </div>
                     </div>
                 </div>
@@ -319,6 +329,12 @@ export default {
             type: Object,
             required: true,
             default: [6, 7, 8],
+        },
+        routes: {
+            type: String,
+        },
+        routes2: {
+            type: String,
         },
     },
 };

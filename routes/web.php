@@ -13,7 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
 Route::get('/', '\App\Http\Controllers\Dataget@index');
+Route::get('/newpage', function () {
+    return view('newpage')->name('newpage');
+});
+Route::get('/newpage2', function () {
+    return view('newpage2')->name('newpage2');
+});

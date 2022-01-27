@@ -16,6 +16,7 @@
 <body class="antialiased">
     <h3>showing inside blade file = {{$title}}</h3>
     <h3>this name is inside array= {{ $info['firstname']}}</h3>
+    <a href="{{url('newpage')}}">Click Here</a>
     @foreach ($info as $item)
     {{$item}}
     @endforeach
@@ -27,7 +28,7 @@
             <h3>Sending data from controller to vue file</h3>
             <div class="col-md-12" id="app">
                 <div class="">
-                    <example-component :vuex="5" :bts="'My journey with Vue in laravel'" :foo="{'3':' three','2': 'two'}" :title="{{$title}}" :info="{{json_encode($info)}}" :value={{json_encode($value)}} :proparray={{json_encode($proparray)}} />
+                    <example-component :vuex="5" :bts="'My journey with Vue in laravel'" :foo="{'3':' three','2': 'two'}" :title="{{$title}}" :info="{{json_encode($info)}}" :value={{json_encode($value)}} :proparray={{json_encode($proparray)}} :routes="{{json_encode(url('newpage'))}}" :routes2="{{json_encode(url('newpage2'))}}" />
                 </div>
             </div>
         </div>
