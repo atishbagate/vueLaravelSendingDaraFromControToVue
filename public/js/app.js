@@ -19460,11 +19460,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     arrayData: "arrayData",
     vueData: "vueData",
     cart: function cart(state) {
-      return state.user.cart;
+      return state.a.cart;
+    },
+    cart2: function cart2(state) {
+      return state.b.cart;
     }
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)({
     counterSqure: "counterSqure",
-    counterPrice: "counterPrice"
+    counterPrice: "a/counterPrice",
+    counterPrice2: "b/counterPrice"
   })),
   methods: _objectSpread(_objectSpread({
     sendArray: function sendArray() {
@@ -19473,13 +19477,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)({
     decreaseCounter: "decreaseCounter",
     increaseCounter: "increaseCounter",
-    increaseCart: "increaseCart",
-    decreaseCart: "decreaseCart"
+    increaseCart: "a/increaseCart",
+    decreaseCart: "a/decreaseCart",
+    // For user2
+    increaseCart2: "b/increaseCart",
+    decreaseCart2: "b/decreaseCart"
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)({
     mutatedecreaseCounter: "increaseCounter",
     mutateincreaseCounter: "decreaseCounter",
-    increaseCartMutate: "increaseCart",
-    decreaseCartMutate: "decreaseCart"
+    increaseCartMutate: "a/increaseCart",
+    decreaseCartMutate: "a/decreaseCart",
+    // For user 2
+    increaseCartMutate2: "b/increaseCart",
+    decreaseCartMutate2: "b/decreaseCart"
   })),
   props: {
     vuex: {
@@ -19592,7 +19602,7 @@ var _hoisted_13 = {
   "class": "card-body"
 };
 
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" this is Vuex Module Example ");
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" this is Vuex Module Example for user 1 ");
 
 var _hoisted_15 = {
   "class": "container"
@@ -19601,6 +19611,38 @@ var _hoisted_15 = {
 var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" this is user ");
 
 var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "form user module ->", -1
+/* HOISTED */
+);
+
+var _hoisted_18 = {
+  "class": "card-body"
+};
+
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" this is Vuex Module Example for user 2\\ ");
+
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, " In this Store we demonstrated that . -> we can use same function name over the different modules. ", -1
+/* HOISTED */
+);
+
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, "Store a -> function Count()", -1
+/* HOISTED */
+);
+
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, "Store b -> function Count()", -1
+/* HOISTED */
+);
+
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, " can be used using namespaced: true, and Giving name to module and accessing it by name prior to that specific function -> a/count or b/count ", -1
+/* HOISTED */
+);
+
+var _hoisted_24 = {
+  "class": "container"
+};
+
+var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" this is user ");
+
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "form user module ->", -1
 /* HOISTED */
 );
 
@@ -19713,6 +19755,38 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "btn btn-danger",
     onClick: _cache[8] || (_cache[8] = function ($event) {
       return _ctx.decreaseCartMutate(5);
+    }),
+    name: "button"
+  }, " user decrease by hitting Mutation ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [_hoisted_19, _hoisted_20, _hoisted_21, _hoisted_22, _hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [_hoisted_25, _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.cart2), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, " this is the Getter Function showing Square of above number : " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.counterPrice2), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    "class": "btn btn-success",
+    onClick: _cache[9] || (_cache[9] = function ($event) {
+      return _ctx.increaseCart2(1);
+    }),
+    name: "button"
+  }, " user increase "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    "class": "btn btn-danger",
+    onClick: _cache[10] || (_cache[10] = function ($event) {
+      return _ctx.decreaseCart2(1);
+    }),
+    name: "button"
+  }, " user decrease "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    "class": "btn btn-success",
+    onClick: _cache[11] || (_cache[11] = function ($event) {
+      return _ctx.increaseCartMutate2(10);
+    }),
+    name: "button"
+  }, " user increase by hitting Mutation "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    "class": "btn btn-danger",
+    onClick: _cache[12] || (_cache[12] = function ($event) {
+      return _ctx.decreaseCartMutate2(10);
     }),
     name: "button"
   }, " user decrease by hitting Mutation ")])])])])])]);
@@ -19828,27 +19902,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actions */ "./resources/js/store/actions.js");
 /* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mutations */ "./resources/js/store/mutations.js");
 /* harmony import */ var _getters__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getters */ "./resources/js/store/getters.js");
 /* harmony import */ var _modules_user_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/user.js */ "./resources/js/store/modules/user.js");
+/* harmony import */ var _modules_user2_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/user2.js */ "./resources/js/store/modules/user2.js");
 
 
 
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vuex__WEBPACK_IMPORTED_MODULE_5__.createStore)({
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vuex__WEBPACK_IMPORTED_MODULE_6__.createStore)({
+  namespaced: true,
   state: {
     counter: 0,
     vueData: "Default Data",
     arrayData: [0, 1]
   },
   modules: {
-    user: _modules_user_js__WEBPACK_IMPORTED_MODULE_4__["default"]
+    a: _modules_user_js__WEBPACK_IMPORTED_MODULE_4__["default"],
+    b: _modules_user2_js__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   mutations: _mutations__WEBPACK_IMPORTED_MODULE_2__["default"],
   actions: _actions__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -19869,18 +19947,66 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  namespaced: true,
   state: {
     cart: 0
   },
   mutations: {
     increaseCart: function increaseCart(state, randomNumber) {
       // state.counter++
-      console.log("cart increased by : ", randomNumber);
+      console.log("cart increased for user 1 : ", randomNumber);
       state.cart += randomNumber;
     },
     decreaseCart: function decreaseCart(state, randomNumber) {
       // state.counter--
-      console.log("cart decrease by : ", randomNumber);
+      console.log("cart decrease for user 1 : ", randomNumber);
+      state.cart -= randomNumber;
+    }
+  },
+  actions: {
+    increaseCart: function increaseCart(_ref, data) {
+      var commit = _ref.commit;
+      commit("increaseCart", data);
+    },
+    decreaseCart: function decreaseCart(_ref2, data) {
+      var commit = _ref2.commit;
+      commit("decreaseCart", data);
+    }
+  },
+  getters: {
+    counterPrice: function counterPrice(state) {
+      return state.cart * 100;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/user2.js":
+/*!*********************************************!*\
+  !*** ./resources/js/store/modules/user2.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  namespaced: true,
+  state: {
+    cart: 0
+  },
+  mutations: {
+    increaseCart: function increaseCart(state, randomNumber) {
+      // state.counter++
+      console.log("cart increased for user 2 : ", randomNumber);
+      state.cart += randomNumber;
+    },
+    decreaseCart: function decreaseCart(state, randomNumber) {
+      // state.counter--
+      console.log("cart decrease by for user 2 : ", randomNumber);
       state.cart -= randomNumber;
     }
   },

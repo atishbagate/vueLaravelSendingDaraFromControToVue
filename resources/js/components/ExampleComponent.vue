@@ -82,7 +82,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        this is Vuex Module Example
+                        this is Vuex Module Example for user 1
                         <div class="container">
                             this is user
                             <h3>form user module -></h3>
@@ -126,6 +126,62 @@
                             </button>
                         </div>
                     </div>
+                    <div class="card-body">
+                        this is Vuex Module Example for user 2\
+                        <h2>
+                            In this Store we demonstrated that . -> we can use
+                            same function name over the different modules.
+                        </h2>
+                        <h5>Store a -> function Count()</h5>
+                        <h5>Store b -> function Count()</h5>
+                        <p>
+                            can be used using namespaced: true, and Giving name
+                            to module and accessing it by name prior to that
+                            specific function -> a/count or b/count
+                        </p>
+                        <div class="container">
+                            this is user
+                            <h3>form user module -></h3>
+                            <h2>{{ cart2 }}</h2>
+                            <h2>
+                                this is the Getter Function showing Square of
+                                above number : {{ counterPrice2 }}
+                            </h2>
+
+                            <button
+                                type="button"
+                                class="btn btn-success"
+                                @click="increaseCart2(1)"
+                                name="button"
+                            >
+                                user increase
+                            </button>
+                            <button
+                                type="button"
+                                class="btn btn-danger"
+                                @click="decreaseCart2(1)"
+                                name="button"
+                            >
+                                user decrease
+                            </button>
+                            <button
+                                type="button"
+                                class="btn btn-success"
+                                @click="increaseCartMutate2(10)"
+                                name="button"
+                            >
+                                user increase by hitting Mutation
+                            </button>
+                            <button
+                                type="button"
+                                class="btn btn-danger"
+                                @click="decreaseCartMutate2(10)"
+                                name="button"
+                            >
+                                user decrease by hitting Mutation
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -150,11 +206,13 @@ export default {
             counter: "counter",
             arrayData: "arrayData",
             vueData: "vueData",
-            cart: (state) => state.user.cart,
+            cart: (state) => state.a.cart,
+            cart2: (state) => state.b.cart,
         }),
         ...mapGetters({
             counterSqure: "counterSqure",
-            counterPrice: "counterPrice",
+            counterPrice: "a/counterPrice",
+            counterPrice2: "b/counterPrice",
         }),
     },
     methods: {
@@ -164,14 +222,20 @@ export default {
         ...mapActions({
             decreaseCounter: "decreaseCounter",
             increaseCounter: "increaseCounter",
-            increaseCart: "increaseCart",
-            decreaseCart: "decreaseCart",
+            increaseCart: "a/increaseCart",
+            decreaseCart: "a/decreaseCart",
+            // For user2
+            increaseCart2: "b/increaseCart",
+            decreaseCart2: "b/decreaseCart",
         }),
         ...mapMutations({
             mutatedecreaseCounter: "increaseCounter",
             mutateincreaseCounter: "decreaseCounter",
-            increaseCartMutate: "increaseCart",
-            decreaseCartMutate: "decreaseCart",
+            increaseCartMutate: "a/increaseCart",
+            decreaseCartMutate: "a/decreaseCart",
+            // For user 2
+            increaseCartMutate2: "b/increaseCart",
+            decreaseCartMutate2: "b/decreaseCart",
         }),
     },
     props: {

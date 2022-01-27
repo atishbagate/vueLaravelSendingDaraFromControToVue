@@ -6,12 +6,12 @@ export default {
     mutations: {
         increaseCart(state, randomNumber) {
             // state.counter++
-            console.log(`cart increased for user 1 : `, randomNumber);
+            console.log(`cart increased for user 2 : `, randomNumber);
             state.cart += randomNumber;
         },
         decreaseCart(state, randomNumber) {
             // state.counter--
-            console.log("cart decrease for user 1 : ", randomNumber);
+            console.log("cart decrease by for user 2 : ", randomNumber);
             state.cart -= randomNumber;
         },
     },
