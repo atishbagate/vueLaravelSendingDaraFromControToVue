@@ -14,7 +14,7 @@
 </head>
 
 <body class="antialiased">
-    <h3>Page is Redirected /h3>
+    <h3>Page 1 is Redirected </h3>
 
 </body>
 

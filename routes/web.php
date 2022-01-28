@@ -15,9 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', '\App\Http\Controllers\Dataget@index');
+
 Route::get('/newpage', function () {
-    return view('newpage')->name('newpage');
-});
+    return view('newpage');
+})->name('newpage');
 Route::get('/newpage2', function () {
-    return view('newpage2')->name('newpage2');
-});
+    return view('newpage2');
+})->name('newpage2');
