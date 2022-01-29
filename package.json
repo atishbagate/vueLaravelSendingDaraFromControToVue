@@ -25,6 +25,10 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "vuex": "^4.0.2"
+        "@vee-validate/rules": "^4.5.7",
+        "vee-validate": "^4.5.8",
+        "vue-router": "^4.0.12",
+        "vuex": "^4.0.2",
+        "yup": "^0.32.11"
     }
 }

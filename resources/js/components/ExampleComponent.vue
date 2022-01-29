@@ -224,13 +224,50 @@
                         </div>
                     </div>
                 </div>
+                <br />
+                <br />
+                <h1>Under this is use of Vee validation.</h1>
+                <div class="card">
+                    <div class="card-body">
+                        <h2>Simple Form</h2>
+                        <AnotherFrm />
+                    </div>
+                </div>
+                <br />
+                <div class="card">
+                    <div class="card-body">
+                        <h2>
+                            this is demo of Form where add and remove Filed is
+                            used.
+                        </h2>
+                        <Frm2 />
+                    </div>
+                </div>
+                <br />
+                <div class="card">
+                    <div class="card-body">
+                        <h2>Cards Insertion and Deletion.</h2>
+                        <Frm3 />
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </template>
 <script>
 import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
+
+// import Frm from "./Frm.vue";
+import AnotherFrm from "./AnotherFrm.vue";
+import Frm2 from "./Frm2.vue";
+import Frm3 from "./Frm3.vue";
 export default {
+    components: {
+        // Frm,
+        AnotherFrm,
+        Frm2,
+        Frm3,
+    },
     mounted() {
         console.log("Component mounted.");
         this.$store.dispatch("countUpdate", this.bts);
