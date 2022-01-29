@@ -1,4 +1,6 @@
 <template>
+    <h4>current user data stored {{ count }}</h4>
+    <h4>current user data stored {{ datashow }}</h4>
     <h3>this is Form</h3>
     <div class="card">
         <Form @submit="onSubmit">
@@ -21,7 +23,7 @@
                 />
                 <ErrorMessage class="text-danger" name="number" />
             </div>
-            <div class="col-md-6 offset-md-3">
+            <!-- <div class="col-md-6 offset-md-3">
                 <label for="input">Insert Image</label>
                 <Field
                     name="image input"
@@ -29,10 +31,10 @@
                     type="file"
                     rules="required|image"
                 />
-                <!--        <span>{{ errors.input }}</span>-->
+
                 <ErrorMessage class="text-danger" name="image input" />
-            </div>
-            <div class="col-md-6 offset-md-3">
+            </div> -->
+            <!-- <div class="col-md-6 offset-md-3">
                 <label for="doc">Insert File</label>
                 <Field
                     name="doc"
@@ -40,11 +42,11 @@
                     type="file"
                     rules="required|mimes:application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
-                <!--        <span>{{ errors.email }}</span>-->
+
                 <ErrorMessage class="text-danger" name="doc" />
                 <br />
                 <br />
-            </div>
+            </div> -->
             <div class="col-md-6 offset-md-3">
                 <button class="btn btn-primary">Sign up</button>
             </div>
@@ -54,6 +56,7 @@
 </template>
 <script>
 import { Form, Field, ErrorMessage, defineRule } from "vee-validate";
+import { mapActions, mapState } from "vuex";
 // import { required, email, min } from "@vee-validate/rules";
 import AllRules from "@vee-validate/rules";
 Object.keys(AllRules).forEach((rule) => {
@@ -66,23 +69,21 @@ export default {
         ErrorMessage,
         defineRule,
     },
+    computed: {
+        ...mapState({
+            count: (state) => state.frm.count,
+            datashow: (state) =>
+                state.frm.count > 0 ? state.frm.userData : "No Entry",
+        }),
+    },
     methods: {
+        ...mapActions({
+            addUser: "frm/AddData",
+        }),
         onSubmit(values) {
             console.log(JSON.stringify(values, null, 2));
+            this.addUser(JSON.stringify(values, null, 2));
             // console.log(values);
-        },
-        validateEmail(value) {
-            // if the field is empty
-            if (!value) {
-                return "This field is required";
-            }
-            // if the field is not a valid email
-            const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-            if (!regex.test(value)) {
-                return "This field must be a valid email";
-            }
-            // All is good
-            return true;
         },
     },
 };

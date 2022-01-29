@@ -5,7 +5,8 @@ import Mutations from "./mutations";
 import Getters from "./getters";
 import user from "./modules/user.js";
 import user2 from "./modules/user2.js";
-
+// this module is for Form Data
+import FrmData from "./modules/FrmData";
 export default createStore({
     namespaced: true,
     state: {
@@ -16,6 +17,7 @@ export default createStore({
     modules: {
         a: user,
         b: user2,
+        frm: FrmData,
     },
     mutations: Mutations,
     actions: Action,

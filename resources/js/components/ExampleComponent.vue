@@ -234,7 +234,7 @@
                     </div>
                 </div>
                 <br />
-                <div class="card">
+                <!-- <div class="card">
                     <div class="card-body">
                         <h2>
                             this is demo of Form where add and remove Filed is
@@ -249,7 +249,7 @@
                         <h2>Cards Insertion and Deletion.</h2>
                         <Frm3 />
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -259,14 +259,14 @@ import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
 
 // import Frm from "./Frm.vue";
 import AnotherFrm from "./AnotherFrm.vue";
-import Frm2 from "./Frm2.vue";
-import Frm3 from "./Frm3.vue";
+// import Frm2 from "./Frm2.vue";
+// import Frm3 from "./Frm3.vue";
 export default {
     components: {
         // Frm,
         AnotherFrm,
-        Frm2,
-        Frm3,
+        // Frm2,
+        // Frm3,
     },
     mounted() {
         console.log("Component mounted.");
