@@ -39,9 +39,10 @@ class Dataget extends Controller
         $proparray =  [
             1, 2, 3, 4, 5
         ];
+        $frmdatasend = ['1@gmail.com', '2@gmail.com', '3@gmail.com', '4@gmail.com'];
         // return view('welcome', ['categories' => $categories, 'products' => $products, 'title' => $title]);
         // return view('welcome')->with('data', $title);
-        return view('welcome', compact('info', 'title', 'value', 'proparray'));
+        return view('welcome', compact('info', 'title', 'value', 'proparray', 'frmdatasend'));
         // return view('welcome', ['info' => $info, 'title' => $title]);
     }
 
@@ -53,6 +54,7 @@ class Dataget extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -63,7 +65,32 @@ class Dataget extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        if ($request->id == 1) {
+            $arr['boolean'] = false;
+            return json_encode($arr);
+        }
+        if ($request->id == 2) {
+            $arr['boolean'] = false;
+            return json_encode($arr);
+        }
+        if ($request->id == 3) {
+            $arr['boolean'] = false;
+            return json_encode($arr);
+        }
+        if ($request->id == 4) {
+            $arr['boolean'] = false;
+            return json_encode($arr);
+        }
+        if ($request->id == 5) {
+            $arr['boolean'] = false;
+            return json_encode($arr);
+        }
+        if ($request->id == 6) {
+            $arr['boolean'] = true;
+            return json_encode($arr);
+        }
     }
 
     /**

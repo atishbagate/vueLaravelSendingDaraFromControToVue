@@ -64,7 +64,6 @@
                         >
                             click to subtract mutation directly
                         </button>
-
                         <br />
                         <br />
                         <br />
@@ -250,6 +249,11 @@
                         <Frm3 />
                     </div>
                 </div> -->
+                <div class="card">
+                    <div class="card-body">
+                        <FrmAppendData />
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -259,6 +263,7 @@ import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
 
 // import Frm from "./Frm.vue";
 import AnotherFrm from "./AnotherFrm.vue";
+import FrmAppendData from "./FrmAppendData.vue";
 // import Frm2 from "./Frm2.vue";
 // import Frm3 from "./Frm3.vue";
 export default {
@@ -267,11 +272,15 @@ export default {
         AnotherFrm,
         // Frm2,
         // Frm3,
+        FrmAppendData,
     },
     mounted() {
         console.log("Component mounted.");
         this.$store.dispatch("countUpdate", this.bts);
         this.$store.dispatch("sendArrayAction", this.proparray);
+
+        // sending Form data to Store
+        this.$store.dispatch("frm/GetFrmData", this.frmdatasend);
     },
     data() {
         return {
@@ -372,6 +381,11 @@ export default {
         },
         routes2: {
             type: String,
+        },
+        frmdatasend: {
+            type: Object,
+            required: true,
+            default: { email: "default@gmial.com" },
         },
     },
 };

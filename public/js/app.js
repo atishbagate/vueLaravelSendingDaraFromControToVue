@@ -20065,8 +20065,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
 /* harmony import */ var _AnotherFrm_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AnotherFrm.vue */ "./resources/js/components/AnotherFrm.vue");
+/* harmony import */ var _FrmAppendData_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FrmAppendData.vue */ "./resources/js/components/FrmAppendData.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -20075,20 +20076,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
  // import Frm from "./Frm.vue";
 
+
  // import Frm2 from "./Frm2.vue";
 // import Frm3 from "./Frm3.vue";
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     // Frm,
-    AnotherFrm: _AnotherFrm_vue__WEBPACK_IMPORTED_MODULE_0__["default"] // Frm2,
+    AnotherFrm: _AnotherFrm_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    // Frm2,
     // Frm3,
-
+    FrmAppendData: _FrmAppendData_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   mounted: function mounted() {
     console.log("Component mounted.");
     this.$store.dispatch("countUpdate", this.bts);
-    this.$store.dispatch("sendArrayAction", this.proparray);
+    this.$store.dispatch("sendArrayAction", this.proparray); // sending Form data to Store
+
+    this.$store.dispatch("frm/GetFrmData", this.frmdatasend);
   },
   data: function data() {
     return {
@@ -20096,7 +20101,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       count: 2
     };
   },
-  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapState)({
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapState)({
     counter: "counter",
     arrayData: "arrayData",
     vueData: "vueData",
@@ -20114,7 +20119,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     takeDataUser1: function takeDataUser1(state) {
       return state.a.sendtouser2;
     }
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)({
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapGetters)({
     counterSqure: "counterSqure",
     counterPrice: "a/counterPrice",
     counterPrice2: "b/counterPrice"
@@ -20123,7 +20128,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     sendArray: function sendArray() {
       this.$store.dispatch("sendArrayAction", this.proparray1);
     }
-  }, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)({
+  }, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapActions)({
     decreaseCounter: "decreaseCounter",
     increaseCounter: "increaseCounter",
     increaseCart: "a/increaseCart",
@@ -20135,7 +20140,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     sendDataU1toU2: "b/fetchingDataFromUser1",
     //accessing the Function of user1 inside user2
     fetchActionOfUser1: "b/fetchFunctionOfUser1"
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapMutations)({
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapMutations)({
     mutatedecreaseCounter: "increaseCounter",
     mutateincreaseCounter: "decreaseCounter",
     increaseCartMutate: "a/increaseCart",
@@ -20195,8 +20200,107 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     routes2: {
       type: String
+    },
+    frmdatasend: {
+      type: Object,
+      required: true,
+      "default": {
+        email: "default@gmial.com"
+      }
     }
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/FrmAppendData.vue?vue&type=script&lang=js":
+/*!*******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/FrmAppendData.vue?vue&type=script&lang=js ***!
+  \*******************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vee_validate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vee-validate */ "./node_modules/vee-validate/dist/vee-validate.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+/* harmony import */ var _vee_validate_rules__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @vee-validate/rules */ "./node_modules/@vee-validate/rules/dist/vee-validate-rules.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+Object.keys(_vee_validate_rules__WEBPACK_IMPORTED_MODULE_0__["default"]).forEach(function (rule) {
+  (0,vee_validate__WEBPACK_IMPORTED_MODULE_1__.defineRule)(rule, _vee_validate_rules__WEBPACK_IMPORTED_MODULE_0__["default"][rule]);
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    Form: vee_validate__WEBPACK_IMPORTED_MODULE_1__.Form,
+    Field: vee_validate__WEBPACK_IMPORTED_MODULE_1__.Field,
+    ErrorMessage: vee_validate__WEBPACK_IMPORTED_MODULE_1__.ErrorMessage,
+    defineRule: vee_validate__WEBPACK_IMPORTED_MODULE_1__.defineRule
+  },
+  data: function data() {
+    return {
+      input1: "test@gmail.com",
+      input2s: null,
+      one: null,
+      outer: 500
+    };
+  },
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapState)({
+    // count: (state) => state.frm.count,
+    count: function count(state) {
+      return state.frm.input1; //  return state.frm.input2;
+    },
+    inputdata: function inputdata(state) {
+      return state.frm.input2;
+    }
+  })), {}, {
+    countM: function countM() {
+      for (var i = 0; i < this.count.length; i++) {
+        this.input1 += this.count[i];
+        console.log("input updated");
+      }
+    },
+    countsM: function countsM() {
+      console.log("countsM entered");
+      console.log(this.input2s); //local var
+
+      console.log(this.inputdata); //vuex Data
+
+      this.input2s = JSON.stringify(this.inputdata);
+
+      for (var name in this.inputdata) {
+        this[name] = this.inputdata[name];
+      }
+    },
+    calculate: function calculate() {
+      var storedata = this.$state.frm.input2;
+      console.log(storedata);
+    }
+  }),
+  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapActions)({
+    addUser: "frm/GetFrmData",
+    GetFrmUser: "frm/GetFrmUser",
+    changeData: "frm/changeData",
+    changeBoolean: "frm/changeBoolean",
+    callData: "frm/callData"
+  })), {}, {
+    onSubmit: function onSubmit(values) {
+      console.log(JSON.stringify(values, null, 2));
+      this.addUser(JSON.stringify(values, null, 2));
+    },
+    addExtraData: function addExtraData() {
+      this.GetFrmUser("extra@gmail.com");
+    }
+  })
 });
 
 /***/ }),
@@ -20477,8 +20581,16 @@ var _hoisted_46 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
+var _hoisted_47 = {
+  "class": "card"
+};
+var _hoisted_48 = {
+  "class": "card-body"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_AnotherFrm = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("AnotherFrm");
+
+  var _component_FrmAppendData = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FrmAppendData");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "sending Strings = " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.bts), 1
   /* TEXT */
@@ -20649,7 +20761,140 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     href: this.routes2
   }, "Click 2", 8
   /* PROPS */
-  , _hoisted_39)])])]), _hoisted_40, _hoisted_41, _hoisted_42, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_43, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_44, [_hoisted_45, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_AnotherFrm)])]), _hoisted_46, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"card\">\n                    <div class=\"card-body\">\n                        <h2>\n                            this is demo of Form where add and remove Filed is\n                            used.\n                        </h2>\n                        <Frm2 />\n                    </div>\n                </div>\n                <br />\n                <div class=\"card\">\n                    <div class=\"card-body\">\n                        <h2>Cards Insertion and Deletion.</h2>\n                        <Frm3 />\n                    </div>\n                </div> ")])])]);
+  , _hoisted_39)])])]), _hoisted_40, _hoisted_41, _hoisted_42, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_43, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_44, [_hoisted_45, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_AnotherFrm)])]), _hoisted_46, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"card\">\n                    <div class=\"card-body\">\n                        <h2>\n                            this is demo of Form where add and remove Filed is\n                            used.\n                        </h2>\n                        <Frm2 />\n                    </div>\n                </div>\n                <br />\n                <div class=\"card\">\n                    <div class=\"card-body\">\n                        <h2>Cards Insertion and Deletion.</h2>\n                        <Frm3 />\n                    </div>\n                </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_47, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_48, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FrmAppendData)])])])])]);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/FrmAppendData.vue?vue&type=template&id=2dd229ec":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/FrmAppendData.vue?vue&type=template&id=2dd229ec ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "This is Demo From For Appending Data From Store to Input Field.", -1
+/* HOISTED */
+);
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "this is Form", -1
+/* HOISTED */
+);
+
+var _hoisted_3 = {
+  "class": "card"
+};
+var _hoisted_4 = {
+  "class": "col-md-6 offset-md-3"
+};
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "email"
+}, "Insert Email", -1
+/* HOISTED */
+);
+
+var _hoisted_6 = {
+  "class": "col-md-6 offset-md-3"
+};
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "email"
+}, "Insert number between 1 to 10", -1
+/* HOISTED */
+);
+
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-md-6 offset-md-3"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "btn btn-primary"
+}, "Sign up")], -1
+/* HOISTED */
+);
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+/* HOISTED */
+);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _this = this;
+
+  var _component_Field = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Field");
+
+  var _component_ErrorMessage = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ErrorMessage");
+
+  var _component_Form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Form");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", null, "current user data stored " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.count), 1
+  /* TEXT */
+  ), _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[0] || (_cache[0] = function () {
+      return $options.addExtraData && $options.addExtraData.apply($options, arguments);
+    }),
+    "class": "btn btn-danger"
+  }, "AddData"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[1] || (_cache[1] = function ($event) {
+      return _ctx.changeData(_this.outer);
+    }),
+    "class": "btn btn-danger"
+  }, " Click "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[2] || (_cache[2] = function ($event) {
+      return _ctx.callData();
+    }),
+    "class": "btn btn-danger"
+  }, "Click call"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[3] || (_cache[3] = function ($event) {
+      return _ctx.changeBoolean();
+    }),
+    "class": "btn btn-danger"
+  }, "False"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Form, {
+    onSubmit: $options.onSubmit
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Field, {
+        name: "emails",
+        "class": "form-control",
+        type: "email",
+        rules: "required",
+        modelValue: $data.input1,
+        "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+          return $data.input1 = $event;
+        })
+      }, null, 8
+      /* PROPS */
+      , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ErrorMessage, {
+        "class": "text-danger",
+        name: "emails"
+      })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Field, {
+        name: "number",
+        "class": "form-control",
+        rules: "required|between:1,10",
+        modelValue: $data.one,
+        "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+          return $data.one = $event;
+        })
+      }, null, 8
+      /* PROPS */
+      , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ErrorMessage, {
+        "class": "text-danger",
+        name: "number"
+      })]), _hoisted_8];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["onSubmit"]), _hoisted_9])], 64
+  /* STABLE_FRAGMENT */
+  );
 }
 
 /***/ }),
@@ -20810,25 +21055,98 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   namespaced: true,
   state: {
     userData: [],
-    count: 0
+    count: 0,
+    input1: [],
+    input2: {
+      one: "1",
+      two: "2",
+      three: "3",
+      four: "4"
+    },
+    onoff: false,
+    dynamicData: 1
   },
   mutations: {
     AddData: function AddData(state, adduser) {
       // state.counter++
-      console.log("cart increased for user 1 : ", adduser);
+      // console.log(`cart increased for user 1 : `, adduser);
       state.userData += adduser;
       state.count++;
+    },
+    AddFrmData: function AddFrmData(state, datainput) {
+      state.input1 += ",".concat(datainput);
+    },
+    input2Mutate: function input2Mutate(state, dataimport) {
+      state.input2 += dataimport;
+    },
+    changeData: function changeData(state, updateData) {
+      state.input2["one"] = updateData;
+    },
+    changeBoolean: function changeBoolean(state, payload) {
+      state.onoff = payload;
+    },
+    callDatain: function callDatain(state) {
+      state.dynamicData++;
     }
   },
   actions: {
     AddData: function AddData(_ref, data) {
       var commit = _ref.commit;
-      console.log("Data is send to Action ", data);
+      // console.log("Data is send to Action ", data);
       commit("AddData", data);
+    },
+    GetFrmData: function GetFrmData(_ref2, data) {
+      var commit = _ref2.commit;
+      // console.log("Data is send to Form", data);
+      commit("AddFrmData", data);
+    },
+    GetFrmUser: function GetFrmUser(_ref3, data) {
+      var commit = _ref3.commit;
+      // console.log("data inside GetFrmUSer ", data);
+      commit("AddFrmData", data); // console.log("data Type", typeof data);
+    },
+    input2Action: function input2Action(_ref4, data) {
+      var commit = _ref4.commit;
+      commit("input2Mutate", data);
+    },
+    changeData: function changeData(_ref5, data) {
+      var commit = _ref5.commit;
+      commit("changeData", data);
+    },
+    changeBoolean: function changeBoolean(_ref6) {
+      var commit = _ref6.commit;
+      commit("changeBoolean");
+    },
+    callDatain: function callDatain(_ref7) {
+      var commit = _ref7.commit;
+      commit("callDatain");
+    },
+    callData: function callData(_ref8) {
+      var commit = _ref8.commit,
+          dispatch = _ref8.dispatch,
+          state = _ref8.state;
+      var data = state.dynamicData;
+
+      if (state.onoff == false) {
+        console.log("inside if ");
+        axios__WEBPACK_IMPORTED_MODULE_0___default().post("http://vuelaravelsendingdarafromcontrotovue.test/send/".concat(data)).then(function (response) {
+          console.log("data response from server - ", JSON.parse(response.data["boolean"]));
+          commit("changeBoolean", JSON.parse(response.data["boolean"]));
+          commit("callDatain");
+          dispatch("callData");
+        });
+        console.log(state.dynamicData);
+        console.log("boolean before recieved - ", state.onoff);
+      } else {
+        console.log("loop run end");
+      }
     }
   },
   getters: {
@@ -20979,20 +21297,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   increaseCounter: function increaseCounter(state, randomNumber) {
     // state.counter++
-    console.log("random increase number: ", randomNumber);
+    // console.log(`random increase number: `, randomNumber);
     state.counter += randomNumber;
   },
   decreaseCounter: function decreaseCounter(state, randomNumber) {
     // state.counter--
-    console.log("random decrease is number: ", randomNumber);
+    // console.log("random decrease is number: ", randomNumber);
     state.counter -= randomNumber;
   },
   countUpdateMutation: function countUpdateMutation(state, sendData) {
-    console.log("the data send in props is: ", sendData);
+    // console.log("the data send in props is: ", sendData);
     state.vueData = this.state.vueData += sendData;
   },
   sendArrayMutation: function sendArrayMutation(state, array) {
-    console.log("this is the Array inside the mutations: ", array);
+    // console.log("this is the Array inside the mutations: ", array);
     state.arrayData = array;
   }
 });
@@ -24128,6 +24446,34 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/components/FrmAppendData.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/FrmAppendData.vue ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _FrmAppendData_vue_vue_type_template_id_2dd229ec__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FrmAppendData.vue?vue&type=template&id=2dd229ec */ "./resources/js/components/FrmAppendData.vue?vue&type=template&id=2dd229ec");
+/* harmony import */ var _FrmAppendData_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FrmAppendData.vue?vue&type=script&lang=js */ "./resources/js/components/FrmAppendData.vue?vue&type=script&lang=js");
+/* harmony import */ var C_laragon_www_vueLaravelSendingDaraFromControToVue_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,C_laragon_www_vueLaravelSendingDaraFromControToVue_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_FrmAppendData_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_FrmAppendData_vue_vue_type_template_id_2dd229ec__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/FrmAppendData.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/components/AnotherFrm.vue?vue&type=script&lang=js":
 /*!************************************************************************!*\
   !*** ./resources/js/components/AnotherFrm.vue?vue&type=script&lang=js ***!
@@ -24160,6 +24506,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/FrmAppendData.vue?vue&type=script&lang=js":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/FrmAppendData.vue?vue&type=script&lang=js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_FrmAppendData_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_FrmAppendData_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./FrmAppendData.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/FrmAppendData.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/components/AnotherFrm.vue?vue&type=template&id=ad400e6e":
 /*!******************************************************************************!*\
   !*** ./resources/js/components/AnotherFrm.vue?vue&type=template&id=ad400e6e ***!
@@ -24188,6 +24550,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ExampleComponent_vue_vue_type_template_id_299e239e__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ExampleComponent_vue_vue_type_template_id_299e239e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ExampleComponent.vue?vue&type=template&id=299e239e */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/FrmAppendData.vue?vue&type=template&id=2dd229ec":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/FrmAppendData.vue?vue&type=template&id=2dd229ec ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_FrmAppendData_vue_vue_type_template_id_2dd229ec__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_FrmAppendData_vue_vue_type_template_id_2dd229ec__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./FrmAppendData.vue?vue&type=template&id=2dd229ec */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/FrmAppendData.vue?vue&type=template&id=2dd229ec");
 
 
 /***/ }),

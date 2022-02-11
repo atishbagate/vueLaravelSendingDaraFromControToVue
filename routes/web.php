@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', '\App\Http\Controllers\Dataget@index');
+Route::post('/send/{id}', '\App\Http\Controllers\Dataget@store');
 
 Route::get('/newpage', function () {
     return view('newpage');
