@@ -1,3 +1,14 @@
+In this project we used different aims and acieved them ->
+1) to send Data From controller( temporary Array and Strings {in Future data From DB}) and shend it to vue File and show it inside component and iterate it. To show.
+2) integration of Store inside the project and accessing values inside vue file ( Created Counter program)
+3)  use Standard Vuex Store management System (Store folder inside it > imported actions, mutations, and Getters from external files.)
+4)  used inad Integrated 2 Stores t.e -> modules concept applied. 
+5)   implemented Advanced  vuex concepts like -> modules, namespacing conventions,  Composition API syntax, 
+6)    vee- validation Implementation. 
+7)    vee- validation integration with vuex store and data updation.
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
